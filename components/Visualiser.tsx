@@ -2,9 +2,9 @@ import React from 'react';
 
 import { System } from "./System";
 
-export const Visualiser = () => (
+export const Visualiser = ({ frame }) => (
   <React.Fragment>
-    <System />
+    <System frame={frame} />
 
   </React.Fragment>
 )
