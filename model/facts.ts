@@ -8,7 +8,7 @@ export const sun = {
 }
 export const earth = {
   name: "earth" as BodyName,
-  radius: 100,
+  radius: 1,
   period: 365.25,
   colour: "#19e"
 }
