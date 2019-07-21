@@ -13,16 +13,18 @@ export const earth = {
   colour: "#19e"
 }
 
-const mercury = {
+export const mercury = {
   name: "mercury",
   radius: 0.389,
-  period: 87.77
+  period: 87.77,
+  colour: '#e36'
 }
 
-const mars = {
+export const mars = {
   name: "mars",
   radius: 1.524,
-  period: 686.95
+  period: 686.95,
+  colour: '#d78'
 }
 
 export const Bodies = {

@@ -1,10 +1,10 @@
 import { Body, Frame, Location } from "./types";
-import { earth, sun } from "./facts";
+import { earth, sun, mercury, mars } from "./facts";
 
 export const engine = (t: number): Frame => {
   const result = {
     t,
-    locations: [earth, sun].map(locationForBodyAt(t)),
+    locations: [earth, sun, mercury, mars].map(locationForBodyAt(t)),
     distances: []
   }
   console.dir(result)
