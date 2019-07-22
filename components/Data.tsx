@@ -12,7 +12,7 @@ export const Data: React.SFC<DataProps> = ({ frame }) => (
     <Layer>
       <Rect width={500} height={500} fill={'#555'} />
       { frame.distances.map((d, ix) => (
-        <Text key={d.body.name} text={`${d.body.name}: ${d.au}`} x={20} y={20 + ix*20} fill={'#eee'} />
+        <Text key={d.body.name} text={`${d.body.name}: ${d.au.toFixed(3)}`} x={20} y={20 + ix*20} fill={'#eee'} />
       ))}
     </Layer>
   </Stage>
