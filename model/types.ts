@@ -1,4 +1,4 @@
-export type BodyName = "mercury" | "earth" | "mars";
+export type BodyName = "mercury" | "earth" | "mars" | "sun";
 
 export interface Body {
   name: BodyName;
@@ -15,7 +15,7 @@ export interface Location {
 }
 
 export interface Distance {
-  bodyName: BodyName;
+  body: Body;
   au: number; 
 }
 export interface Frame {
