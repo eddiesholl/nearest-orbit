@@ -1,7 +1,7 @@
-import { Body, Frame, Location, Distance } from "./types";
+import { Body, Frame, Location, Distance, SystemHistory } from "./types";
 import { earth, sun, mercury, mars } from "./facts";
 
-export const engine = (t: number): Frame => {
+export const generateFrame = (t: number, previousFrame: Frame): Frame => {
   const earthLocation = locationForBodyAt(t)(earth)
   const sunLocation = locationForBodyAt(t)(sun)
   const otherLocations = [mercury, mars].map(locationForBodyAt(t))
@@ -10,7 +10,8 @@ export const engine = (t: number): Frame => {
   const result = {
     t,
     locations: [earthLocation, sunLocation, ...otherLocations],
-    distances
+    distances,
+    previousFrame
   }
 
   return result
@@ -38,6 +39,6 @@ const locationForBodyAt = (t: number) => (body: Body): Location => {
 const distanceBetween = (l1: Location, l2: Location): number => {
   const xsq = Math.pow(l2.x - l1.x, 2)
   const ysq = Math.pow(l2.y - l1.y, 2)
-  
+
   return Math.sqrt(xsq + ysq)
 }
