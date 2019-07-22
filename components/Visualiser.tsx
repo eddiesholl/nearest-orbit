@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { System } from "./System";
+import { Data } from "./Data";
 
 export const Visualiser = ({ frame }) => (
-  <React.Fragment>
+  <div style={{display: "flex"}}>
     <System frame={frame} />
-
-  </React.Fragment>
+    <Data frame={frame} />
+  </div >
 )
