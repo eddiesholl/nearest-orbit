@@ -11,14 +11,14 @@ const centerY = height / 2
 const scale = 100
 
 interface SystemProps {
-  frame?: Frame;
+  frames: Frame[];
 }
 
-export const System: React.SFC<SystemProps> = ({ frame }) => (
+export const System: React.SFC<SystemProps> = ({ frames }) => (
   <Stage width={width} height={height} >
     <Layer>
       <Rect width={width} height={height} fill={'#777'} />
-      { frame && frame.locations.map(loc => (
+      { frames[0] && frames[0].locations.map(loc => (
         <Circle key={loc.body.name} x={loc.x*scale + centerX} y={loc.y*scale + centerY} fill={loc.body.colour} radius={5} />
       )) }
     </Layer>

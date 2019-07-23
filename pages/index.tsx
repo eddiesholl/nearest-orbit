@@ -3,7 +3,7 @@ import { Timer } from '../components/Timer'
 
 export const Home = () => (
   <Timer>
-    {(frame) => <Visualiser frame={frame} />}
+    {(frames) => <Visualiser frames={frames} />}
   </Timer>
   
 )

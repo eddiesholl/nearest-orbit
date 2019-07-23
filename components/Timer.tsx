@@ -7,13 +7,13 @@ import { Frame } from '../model/types';
 export const Timer = ({ children }) => {
 
   const [time, setTime] = React.useState(0)
-  const [currentFrame, setCurrentFrame] = React.useState<Frame>()
-  const [timeIncrement, setTimeIncrement] = React.useState(1000)
+  const [frames, setFrames] = React.useState<Frame[]>([])
+  const [timeIncrement, setTimeIncrement] = React.useState(50)
   const [isRunning, setIsRunning] = useState(true);
 
   useInterval(() => {
     setTime(time + 1)
-    setCurrentFrame(generateFrame(time + 1, currentFrame))
+    setFrames([generateFrame(time + 1), ...frames])
   }, isRunning ? timeIncrement : null)
 
   return (
@@ -24,7 +24,7 @@ export const Timer = ({ children }) => {
       </button>
       <input onChange={(event) => setTime(parseInt(event.target.value.toString()) || 0)} />
       <input value={timeIncrement} onChange={(event) => setTimeIncrement(parseInt(event.target.value.toString()) || 1000)} />
-      { children(currentFrame) }
+      { children(frames) }
     </React.Fragment>
   )
 }

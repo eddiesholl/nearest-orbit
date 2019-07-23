@@ -1,7 +1,7 @@
 import { Body, Frame, Location, Distance, SystemHistory } from "./types";
 import { earth, sun, mercury, mars } from "./facts";
 
-export const generateFrame = (t: number, previousFrame: Frame): Frame => {
+export const generateFrame = (t: number): Frame => {
   const earthLocation = locationForBodyAt(t)(earth)
   const sunLocation = locationForBodyAt(t)(sun)
   const otherLocations = [mercury, mars].map(locationForBodyAt(t))
@@ -10,8 +10,7 @@ export const generateFrame = (t: number, previousFrame: Frame): Frame => {
   const result = {
     t,
     locations: [earthLocation, sunLocation, ...otherLocations],
-    distances,
-    previousFrame
+    distances
   }
 
   return result
